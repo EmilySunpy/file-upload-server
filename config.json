@@ -11,5 +11,25 @@
         "user": "root",
         "passwd": "meme",
         "db": "file_uploader"
+    },
+    "settings": {
+        "allow_register": true,
+        "max-filesize": "128M",
+        "scan-common-types": true,
+        "allow_unknown_type": false,
+        "filter-type": "allow,deny",
+        "filter": ["images"]
+    },
+    "filters": {
+        "images": [
+            "png",
+            "jpeg",
+            "jpg",
+            "gif"
+        ],
+        "programs": [
+            "exe",
+            "iso"
+        ]
     }
 }
