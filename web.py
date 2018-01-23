@@ -30,11 +30,11 @@ def serve_register():
     return "register"
 
 @app.route("/<user>/")
-def serve_userpage():
+def serve_userpage(user):
     return "userpage"
 
 @app.route("/<user>/view/<file_ext>/<file_name>")
-def serve_view_file():
+def serve_view_file(user, file_ext, file_name):
     return "file viewer"
 
 @app.route("/upload")
