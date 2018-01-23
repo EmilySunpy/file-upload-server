@@ -23,7 +23,7 @@ def cache_users():
 
 @app.route("/")
 def serve_home():
-    return "home"
+    return render_template("home.html")
 
 @app.route("/register")
 def serve_register():
@@ -37,7 +37,7 @@ def serve_userpage(user):
 def serve_view_file(user, file_ext, file_name):
     return "file viewer"
 
-@app.route("/upload")
+@app.route("/upload", methods=['GET', 'POST'])
 def handle_upload():
     return upload_handler.upload(request)
 

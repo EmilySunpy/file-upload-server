@@ -13,6 +13,7 @@
         "db": "file_uploader"
     },
     "settings": {
+        "require_login": true,
         "allow_register": true,
         "max-filesize": "128M",
         "scan-common-types": true,
