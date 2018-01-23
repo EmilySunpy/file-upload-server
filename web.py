@@ -12,7 +12,7 @@ app = Flask(__name__)
 with open("config.json", "r") as f:
     glob.config = json.load(f)
 
-glob.sql = MySQLdb.connect(**config["sql"], cursorclass = MySQLdb.cursors.DictCursor)
+glob.sql = MySQLdb.connect(**glob.config["sql"], cursorclass = MySQLdb.cursors.DictCursor)
 
 @app.route("/")
 def serve_home():
