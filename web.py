@@ -3,6 +3,8 @@ import MySQLdb
 import MySQLdb.cursors
 from flask import Flask, render_template, url_for, request
 
+from handlers import upload_handler
+
 import glob
 
 app = Flask(__name__)
@@ -30,7 +32,7 @@ def serve_view_file():
 
 @app.route("/upload")
 def handle_upload():
-    return "upload"
+    return upload_handler.upload(request)
 
 if __name__ == "__main__":
     app.run(**glob.config["web"])
