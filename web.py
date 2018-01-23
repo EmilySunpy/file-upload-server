@@ -14,6 +14,13 @@ with open("config.json", "r") as f:
 
 glob.sql = MySQLdb.connect(**glob.config["sql"], cursorclass = MySQLdb.cursors.DictCursor)
 
+def cache_users():
+    cursor = glob.sql.cursor()
+    cursor.execute("SELECT username,password FROM users WHERE locked = 0")
+    rows = cursor.fetchall()
+    for row in rows:
+        glob.users[row["username"]] = row["password"]
+
 @app.route("/")
 def serve_home():
     return "home"
@@ -35,4 +42,5 @@ def handle_upload():
     return upload_handler.upload(request)
 
 if __name__ == "__main__":
+    cache_users()
     app.run(**glob.config["web"])
