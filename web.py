@@ -22,11 +22,11 @@ def serve_home():
 def serve_register():
     return "register"
 
-@app.route("/{user}/")
+@app.route("/<user>/")
 def serve_userpage():
     return "userpage"
 
-@app.route("/{user}/view/{file_ext}/{file_name}")
+@app.route("/<user>/view/<file_ext>/<file_name>")
 def serve_view_file():
     return "file viewer"
 
