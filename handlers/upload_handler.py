@@ -1,4 +1,5 @@
 import glob
+from werkzeug import secure_filename
 
 def upload(request):
     #Check if the params is declared
@@ -12,5 +13,8 @@ def upload(request):
     #Check if valid login
     if u not in glob.users or glob.users[u] != p:
         return "Invalid login"
+
+    #TODO: generate random name and into the right folder
+    f.save(secure_filename(f.filename))
 
     return "Upload file ;)"
